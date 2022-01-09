@@ -2,56 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 html,
 body {
-    background-color:#091628;
+    background-color:#191A2E;
     width: 100%;
     height: 100%;
 }
 
-/* ---------------  custome scroll-bar   */
-/* width */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 4px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: transparent;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #48546E;
-    border-radius: 100vh;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #a0aec0;
-}
-
+/* ***************************************************** custom scroll-bar ******************************************* */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 4px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: transparent;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #48546E;
+        border-radius: 100vh;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a0aec0;
+    }
 /* ***************************************************** reused style ******************************************* */
-@layer components {
-    .fx{
-        @apply flex items-center space-x-2 
+    @layer components {
+        .fx{
+            @apply flex items-center space-x-2 
+        }
+        .jc{
+            @apply flex items-center justify-center space-x-2 
+        } 
+        .jb{
+            @apply flex items-center justify-between space-x-2 
+        } 
+        .fy{
+            @apply flex flex-col
+        }
+        .an{
+            @apply hover:scale-105 transition transform ease-in-out duration-200 tracking-wide hover:tracking-wider
+        }
     }
-    .jc{
-        @apply flex items-center justify-center space-x-2 
-    } 
-    .jb{
-        @apply flex items-center justify-between space-x-2 
-    } 
-    .fy{
-        @apply flex flex-col
-    }
-    .an{
-        @apply hover:scale-105 transition transform ease-in-out duration-200 tracking-wide hover:tracking-wider
-    }
-}

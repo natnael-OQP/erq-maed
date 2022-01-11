@@ -52,4 +52,7 @@ body {
         .an{
             @apply hover:scale-105 transition transform ease-in-out duration-200 tracking-wide hover:tracking-wider
         }
+        .contactBtn{
+            @apply w-10 h-10 text-[#191A2E] cursor-pointer  
+        }
     }

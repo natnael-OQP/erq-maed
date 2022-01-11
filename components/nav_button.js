@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {useRouter} from "next/router";
-const NavButton = ({ name, path }) => {
+const Nav_Button = ({ name, path }) => {
     const { pathname } = useRouter();
     return (
 		<div className="flex items-center gap-x-[6px] hover:scale-105 hover:text-white">
@@ -14,4 +14,4 @@ const NavButton = ({ name, path }) => {
 	);
 };
 
-export default NavButton;
+export default Nav_Button;

@@ -10,7 +10,7 @@ const Layout = ({children}) => {
 			{/* copy right */}
 			<div className="bg-black text-white h-10 fy items-center justify-center">
 				<h3 className="text-color3 text-sm font-lato">
-					&copy; {" " }Copyright 2022 - All rights Reserved
+					&copy; Copyright 2022 - All rights Reserved
 				</h3>
 			</div>
 		</div>

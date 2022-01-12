@@ -55,4 +55,7 @@ body {
         .contactBtn{
             @apply w-10 h-10 text-[#191A2E] cursor-pointer  
         }
+        .footerIcon{
+            @apply w-6 h-6 text-color4 cursor-pointer  
+        }
     }

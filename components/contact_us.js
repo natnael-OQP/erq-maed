@@ -18,21 +18,21 @@ export default function Contact_Us() {
 					believe.norland neither mistake for yet.
 				</p>
 				{/* Icons */}
-				<div className="fx space-x-8 mt-1">
-					<BsLinkedin className="contactBtn" />
-					<BsFacebook className="contactBtn w-11 h-11" />
-					<AiFillTwitterCircle className="contactBtn w-[50px] h-[50px]" />
+				<div className="fx space-x-8 mt-1 mx-auto">
+					<BsLinkedin className="contactBtn w-7 h-7 md:w-10 md:h-10" />
+					<BsFacebook className="w-7 h-7 contactBtn sm:w-11 sm:h-11" />
+					<AiFillTwitterCircle className="contactBtn w-8 h-8 sm:w-[50px] sm:h-[50px]" />
 				</div>
 				{/* address */}
 				<div className="space-y-4 mt-4 text-[#191A2E] ">
 					<div className="fx gap-x-4">
 						<MdLocationOn className="w-7 h-8" />
-						<p className="text-xl font-lato font-normal">
+						<p className="text-base sm:text-xl font-lato font-normal">
 							431 Meskel Square, <br /> Add ise abeba,Ethiopia
 						</p>
 					</div>
 					<a
-						className="text-xl font-lato font-normal fx gap-x-4"
+						className="text-base sm:text-xl font-lato font-normal fx gap-x-4"
 						href="tel:+123456789"
 					>
 						<FaPhoneAlt className=" h-8 w-6 " />
@@ -41,7 +41,7 @@ export default function Contact_Us() {
 					{/* mail */}
 					<a
 						href="mailto:m.bluth@example.com"
-						className="text-xl font-lato font-normal fx gap-x-4"
+						className="text-base sm:text-xl font-lato font-normal fx gap-x-4"
 					>
 						<IoMdMail className="w-6 h-6" />
 						sample@gmail.com

@@ -10,10 +10,10 @@ const Footer = () => {
     return (
 		<div className="max-w-6xl mx-auto grid gap-y-8  grid-cols-2 lg:grid-cols-4 text-white py-10 items-center justify-center">
 			{/* 1 */}
-			<div className="w-44 h-56 fy mx-auto ">
+			<div className="max-w-44 h-56 fy mx-auto ">
 				{/*logo */}
 				<Link href="/" passHref>
-					<div className="relative w-40 h-12  shrink-0 cursor-pointer">
+					<div className="relative max-w-40 h-12  shrink-0 cursor-pointer">
 						<Image
 							src="/logo.png"
 							layout="fill"
@@ -21,6 +21,7 @@ const Footer = () => {
 							alt="logo"
 						/>
 					</div>
+					mobile friendly mobile friendly
 				</Link>
 				{/* address */}
 				<div className="space-y-3 mt-3  text-color4 flex-grow ">
@@ -54,7 +55,7 @@ const Footer = () => {
 				</div>
 			</div>
 			{/* 2 */}
-			<ul className="w-44 h-48 fy justify-between items-end lg:items-start  mx-auto ">
+			<ul className="max-w-44 h-48 fy justify-between items-end lg:items-start  mx-auto ">
 				<li className="text-xl font-lato text-white ">Category</li>
 				<li className="text-sm  text-color3">First Link</li>
 				<li className="text-sm  text-color3">Second Link</li>
@@ -62,7 +63,7 @@ const Footer = () => {
 				<li className="text-sm  text-color3">Fourth Link</li>
 			</ul>
 			{/* 3 */}
-			<ul className="w-44 h-48 fy justify-between mx-auto">
+			<ul className="max-w-44 h-48 fy justify-between mx-auto">
 				<li className="text-xl font-lato text-white ">Category</li>
 				<li className="text-sm  text-color3">First Link</li>
 				<li className="text-sm  text-color3">Second Link</li>
@@ -70,7 +71,7 @@ const Footer = () => {
 				<li className="text-sm  text-color3">Fourth Link</li>
 			</ul>
 			{/* 4 */}
-			<ul className="w-44 h-48 fy justify-between mx-auto items-end lg:items-start">
+			<ul className="max-w-44 h-48 fy justify-between mx-auto items-end lg:items-start">
 				<li className="text-xl font-lato text-white ">Category</li>
 				<li className="text-sm  text-color3">First Link</li>
 				<li className="text-sm  text-color3">Second Link</li>

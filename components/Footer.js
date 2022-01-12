@@ -21,7 +21,6 @@ const Footer = () => {
 							alt="logo"
 						/>
 					</div>
-					mobile friendly mobile friendly
 				</Link>
 				{/* address */}
 				<div className="space-y-3 mt-3  text-color4 flex-grow ">

@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link';
+import { CgMenuRight } from "react-icons/cg";
 import Nav_Button from './nav_button';
 
 const Navbar = () => {
     return (
-		<div className="h-20 jb px-12  ">
+		<div className="h-20 jb px-3 md:px-12  ">
 			{/*logo*/}
 			<Link href="/" passHref>
 				<div className="relative w-32 h-9  shrink-0 cursor-pointer">
@@ -17,12 +18,16 @@ const Navbar = () => {
 				</div>
 			</Link>
 			{/* nav bar buttons */}
-			<div className="fx gap-x-7">
+			<div className=" gap-x-7 hidden sm:fx">
 				<Nav_Button path="/" name="Home" />
 				<Nav_Button path="/about" name="About Us" />
 				<Nav_Button path="/portfolio" name="Portfolio" />
 				<Nav_Button path="/event" name="Event" />
 			</div>
+			{/* */}
+			<button className="sm:hidden">
+				<CgMenuRight className="w-8 h-8 text-color3" />
+			</button>
 		</div>
 	);
 }

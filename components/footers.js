@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
 
-const Footer = () => {
+const Footers = () => {
 	return (
 		<div className="max-w-6xl mx-auto grid gap-y-8  grid-cols-2 lg:grid-cols-4 text-white py-10 items-center justify-center">
 			{/* 1 */}
@@ -81,4 +81,4 @@ const Footer = () => {
 	);
 };
 
-export default Footer;
+export default Footers;

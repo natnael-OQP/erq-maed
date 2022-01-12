@@ -8,7 +8,7 @@ import { MdLocationOn, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 export default function Contact_Us() {
 	return (
-		<div className="mt-10 bg-white grid grid-cols-2 items-center px-20 py-14 ">
+		<div className="mt-10 bg-white grid grid-cols-1 md:grid-cols-2 items-center px-3  md:px-20 py-14 ">
 			<div className="mx-auto  max-w-sm ">
 				<h2 className="text-3xl text-black font-lato font-bold">
 					Contact Us
@@ -48,7 +48,7 @@ export default function Contact_Us() {
 					</a>
 				</div>
 			</div>
-			<div className="relative w-[550px] h-[550px] mx-auto ">
+			<div className="relative w-full h-[400px] md:max-w-[550px] md:h-[550px] mx-auto  ">
 				<Image
 					// className="opacity-0"
 					layout="fill"
@@ -56,23 +56,23 @@ export default function Contact_Us() {
 					src="/bg.png"
 					alt="contact us"
 				/>
-				<form className="absolute top-[20%] left-[14%] w-[320px] h-[350px] text-[#191A2E] fy gap-y-3  ">
+				<form className="absolute top-[8%] sm:top-[20%] left-[2%] sm:left-[14%] w-full sm:w-[320px] h-[350px] text-[#191A2E] fy gap-y-3 0 ">
 					<h4 className="text-xl font-semibold">Contact Us</h4>
 					<input
 						name="fullName"
-						className="placeholder:text-[#191A2E] placeholder:text-sm placeholder:font-bold px-4 py-1 rounded-xl outline-none focus:ring-[2px] focus:ring-[#191A2E] focus:ring-opacity-40"
+						className="placeholder:text-[#191A2E] placeholder:text-sm placeholder:font-bold px-4 py-1 rounded-xl  outline-none ring-[2px] ring-[#191A2E] ring-opacity-25  focus:ring-[2px]  focus:ring-[#191A2E] focus:ring-opacity-40"
 						type="text"
 						placeholder="Full Name"
 					/>
 					<input
 						name="email"
-						className="placeholder:text-[#191A2E] placeholder:text-sm placeholder:font-bold px-4 py-1 rounded-xl outline-none focus:ring-[2px] focus:ring-[#191A2E] focus:ring-opacity-40"
+						className="placeholder:text-[#191A2E] placeholder:text-sm placeholder:font-bold px-4 py-1 ring-[2px] ring-[#191A2E] ring-opacity-25 rounded-xl outline-none focus:ring-[2px] focus:ring-[#191A2E] focus:ring-opacity-40"
 						type="email"
 						required
 						placeholder="Email Address"
 					/>
 					<textarea
-						className="placeholder:text-[#191A2E] outline-none focus:ring-[2px] focus:ring-[#191A2E] focus:ring-opacity-40 placeholder:text-sm placeholder:font-bold px-4 py-2 rounded-xl "
+						className="placeholder:text-[#191A2E] outline-none focus:ring-[2px] focus:ring-[#191A2E] focus:ring-opacity-40 ring-[2px] ring-[#191A2E] ring-opacity-25 placeholder:text-sm placeholder:font-bold px-4 py-2 rounded-xl "
 						name="message"
 						cols="30"
 						rows="9"

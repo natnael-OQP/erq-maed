@@ -1,34 +1,10 @@
 import Image from "next/image";
 import Service_Card from "../components/service_card";
-import paragraph from "../models/paragraph";
 import Contact_Us from "../components/contact_us";
+import { service_data,about_us } from "../data";
+import serviceCard from "../models/serviceCard";
 
-const About = () => {
-	const { paragraph: paragraph1 } =
-		new paragraph(`Oh to talking improve produce in limited offices fifteen
-                an. Wicket branch to answer do we. Place are decay men
-                hours tiled. If or of ye throwing friendly required.
-                Marianne interest in exertion as. Offering my branched
-                confined oh dashwood.`);
-	const { paragraph: paragraph2 } =
-		new paragraph(`Supported neglected met she therefore unwilling
-                discovery remainder. Way sentiments two indulgence
-                uncommonly own.`);
-	const { paragraph:paragraph3 } =
-		new paragraph(`Village did removed enjoyed explain nor ham saw
-                calling talking. Securing as informed declared or
-                margaret. Joy horrible moreover man feelings own
-                shy. Request norland neither mistake for yet.
-                Between the for morning assured country believe. On
-                even feet time have an no at. Relation so in
-                confined smallest children unpacked delicate. Why
-                sir end believe uncivil respect. Always get adieus
-                nature day course for common. My little garret
-                repair to desire he esteem.Sister depend change off
-                piqued one. Contented continued any happiness
-                instantly objection yet her allowance. Use correct
-                day new brought tedious. By come this been in. Kept
-                easy or sons my it done.`);
+const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
 
 	return (
 		<div className="gap-y-20 fy mt-10 font-lato">
@@ -111,14 +87,17 @@ const About = () => {
 				</p>
 				{/* service cards */}
 				<div className="grid gap-y-4 md:gap-x-3 lg:grid-cols-4 px-6 md:px-16 py-10 ">
-					{Array(4).fill(
-						<Service_Card
-							image="/svg2.svg"
-							title="assured country"
-							description="Between the for morning assured country believe.norland
-										neither mistake for yet. for morning assured country"
-						/>
-					)}
+					{service.map(({ image, title, description }) => {
+						const card = new serviceCard(title, image, description);
+						return (
+							<Service_Card
+								key={card.image}
+								title={card.title}
+								image={card.image}
+								description={card.description}
+							/>
+						);
+					})}
 				</div>
 			</div>
 			{/* Contact us section*/}
@@ -126,5 +105,14 @@ const About = () => {
 		</div>
 	);
 };
+
+export async function getServerSideProps(context) {
+	return {
+		props: {
+			about_us,
+			service: service_data,
+		},
+	};
+}
 
 export default About;

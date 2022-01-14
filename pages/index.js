@@ -3,6 +3,10 @@ import Image from "next/image";
 import { useState } from "react";
 import YouTube from "react-youtube";
 import { BsYoutube, BsSpotify } from "react-icons/bs";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export default function Home() {
 	// const [player, setPlayer] = useState();
 	// const [id, setId] = useState("3AUY6xLFgkg");
@@ -29,7 +33,35 @@ export default function Home() {
 	// const onEndVideo = () => {
 	// 	setId(null);
 	// };
-
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 2,
+		autoplay: true,
+		speed: 2000,
+		autoplaySpeed: 4000,
+		cssEase: "linear",
+		responsive: [
+			{
+				breakpoint: 900,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 1,
+				},
+			},
+		],
+	};
 
 	return (
 		<div className="text-color3">
@@ -39,9 +71,10 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
+				{/* landing */}
 				<div className="px-3 md:px-10 lg:px-20   h-[80vh] bg-[#10121F]">
-					<div className="pt-20 md:pt-[20%] lg:pt-[13%] px-3">
-						<h1 className="text-4xl md:text-6xl text-white font-bold text-center md:text-left">
+					<div className="pt-14 sm:pt-20 md:pt-[20%] lg:pt-[13%] px-3 ">
+						<h1 className="text-4xl md:text-6xl text-white font-bold text-left">
 							Lorem ipsum
 						</h1>
 						<p className="text-color3 font-lato text-sm pt-5 md:pt-10 md:w-[70%] lg:w-[50%]">
@@ -66,7 +99,7 @@ export default function Home() {
 							<div className="relative w-24 h-6">
 								<Image
 									layout="fill"
-									objectFill="contain"
+									objectFit="contain"
 									src="https://pluspng.com/img-png/deezer-png-deezer-360.png"
 									alt="deezer-logo"
 								/>
@@ -74,6 +107,64 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
+				{/* why choose us */}
+				<div className="py-40 relative px-5 ">
+					{/* middle */}
+					<div className="bg-color4 absolute fy sm:items-center sm:flex-row  pl-8 xl:pl-12 py-1 sm:py-4    w-[95%] xl:w-[70%]  left-[50%] -translate-x-[50%]  h-52  -top-[100px] rounded-3xl">
+						<h1 className="w-full sm:w-[33%] text-xl xl:text-4xl text-primary font-semibold capitalize">
+							Lorem ipsum dolor sit amet consect.
+						</h1>
+						{/* slide */}
+						<div className=" w-[90%] h-full py-5 overflow-hidden px-7">
+							<Slider {...settings}>
+								<div className="smallCardContainer ">
+									<div className="smallCard">1</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">2</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">3</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">4</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">5</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">6</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">7</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">8</div>
+								</div>
+								<div className="smallCardContainer">
+									<div className="smallCard">9</div>
+								</div>
+							</Slider>
+						</div>
+					</div>
+					<div>
+						<h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-lato">
+							WHY CHOOSE US
+						</h1>
+						<p className="w-[87%] sm:w-[70%] lg:w-[60%] text-sm text-center mx-auto sm:text-base font-normal pt-3 font-lato text-color3">
+							Supported neglected met she therefore unwilling
+							discovery remainder. Way sentiments two indulgence
+							uncommonly own.
+						</p>
+					</div>
+					{/*  */}
+					<div>
+						{
+
+						}
+					</div>
+				</div>
+				<div className="bg-color3 h-[1px]"></div>
 			</main>
 		</div>
 	);

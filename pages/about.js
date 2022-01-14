@@ -86,7 +86,7 @@ const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
 					neither mistake for yet. for morning assured country
 				</p>
 				{/* service cards */}
-				<div className="grid gap-y-4 md:gap-x-3 lg:grid-cols-4 px-6 md:px-16 py-10 ">
+				<div className="fx snap-x mt-20 gap-x-4 snap-mandatory  scroll-smooth md:gap-x-3  px-6 md:px-16 py-10 overflow-x-scroll w-full ">
 					{service.map(({ image, title, description }) => {
 						const card = new serviceCard(title, image, description);
 						return (

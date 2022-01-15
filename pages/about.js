@@ -106,7 +106,7 @@ const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
 	);
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 	return {
 		props: {
 			about_us,

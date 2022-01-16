@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import YouTube from "react-youtube";
 import { BsYoutube, BsSpotify } from "react-icons/bs";
@@ -7,12 +8,11 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import Why_choose_us_card from "../components/why_choose_us_card";
+const Why_choose_us_card = dynamic(() => import("../components/why_choose_us_card"));
 import { service_data } from "../data";
-import serviceCard from "../models/serviceCard";
+import serviceCard  from "../models/serviceCard";
 
-export default function Home({ service }) {
+export default function Home() {
 	// const [player, setPlayer] = useState();
 	// const [id, setId] = useState("3AUY6xLFgkg");
 	// const opts = {
@@ -195,21 +195,23 @@ export default function Home({ service }) {
 					{/* card */}
 					<div className="w-[90vw] lg:w-[90%] xl:w-[80vw] mx-auto mt-16 h-full py-5 overflow-hidden px-7">
 						<Slider {...settings2}>
-							{service.map(({ image, title, description }) => {
-								const card = new serviceCard(
-									title,
-									image,
-									description
-								);
-								return (
-									<Why_choose_us_card
-										key={card.image}
-										title={card.title}
-										image={card.image}
-										description={card.description}
-									/>
-								);
-							})}
+							{service_data.map(
+								({ image, title, description }) => {
+									const card = new serviceCard(
+										title,
+										image,
+										description
+									);
+									return (
+										<Why_choose_us_card
+											key={card.image}
+											title={card.title}
+											image={card.image}
+											description={card.description}
+										/>
+									);
+								}
+							)}
 						</Slider>
 					</div>
 				</div>
@@ -238,24 +240,12 @@ export default function Home({ service }) {
 							discovery remainder. Way sentiments two indulgence
 							uncommonly own.
 						</p>
-						{/* card */}s
-						<div>
-							{
-							
-							}
-						</div>
+						{/* card */}s<div>{}</div>
 					</div>
 				</div>
 			</main>
 		</div>
 	);
-}
-export async function getStaticProps(context) {
-	return {
-		props: {
-			service: service_data,
-		},
-	};
 }
 
 

@@ -1,11 +1,26 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Service_Card from "../components/service_card";
-import Contact_Us from "../components/contact_us";
-import { service_data,about_us } from "../data";
+const Service_Card = dynamic(() => import("../components/service_card"), {
+	// loading: () => (
+	// 	<p className="">loading.......</p>
+	// ),
+});
+const Contact_Us = dynamic(() => import("../components/contact_us"), {
+	// loading: () => (
+	// 	<p className="">loading.......</p>
+	// ),
+});
 import serviceCard from "../models/serviceCard";
+import { service_data, about_us } from "../data";
 
-const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
+import useInView from "react-cool-inview";
 
+const About = () => {
+	const { paragraph1, paragraph2, paragraph3 } = about_us;
+
+	const { observe, inView } = useInView({
+		onEnter: ({  unobserve }) => unobserve()
+	});
 	return (
 		<div className="gap-y-20 fy mt-10 font-lato">
 			{/* landing section*/}
@@ -77,7 +92,7 @@ const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
 			</div>
 
 			{/* Our Service */}
-			<div className="fy md:mt-14">
+			<div className="fy md:mt-14" ref={observe}>
 				<h1 className="text-center font-bold  text-[40px] tracking-wide  text-secondary font-lato">
 					Our Service
 				</h1>
@@ -86,33 +101,30 @@ const About = ({about_us:{paragraph1,paragraph2,paragraph3}, service }) => {
 					neither mistake for yet. for morning assured country
 				</p>
 				{/* service cards */}
-				<div className="fx snap-x mt-20 gap-x-4 snap-mandatory  scroll-smooth md:gap-x-3  px-6 md:px-16 py-10 overflow-x-scroll w-full ">
-					{service.map(({ image, title, description }) => {
-						const card = new serviceCard(title, image, description);
-						return (
-							<Service_Card
-								key={card.image}
-								title={card.title}
-								image={card.image}
-								description={card.description}
-							/>
-						);
-					})}
-				</div>
+				{inView && (
+					<div className="fx snap-x mt-20 gap-x-4 snap-mandatory  scroll-smooth md:gap-x-3  px-6 md:px-16 py-10 overflow-x-scroll w-full ">
+						{service_data.map(({ image, title, description }) => {
+							const card = new serviceCard(
+								title,
+								image,
+								description
+							);
+							return (
+								<Service_Card
+									key={card.image}
+									title={card.title}
+									image={card.image}
+									description={card.description}
+								/>
+							);
+						})}
+					</div>
+				)}
 			</div>
 			{/* Contact us section*/}
 			<Contact_Us />
 		</div>
 	);
 };
-
-export async function getStaticProps(context) {
-	return {
-		props: {
-			about_us,
-			service: service_data,
-		},
-	};
-}
 
 export default About;

@@ -1,7 +1,7 @@
 module.exports = {
 	reactStrictMode: true,
 	images: {
-		domains:['pluspng.com'],
+		domains: ["pluspng.com", "img.youtube.com"],
 		formats: ["image/avif", "image/webp"],
 	},
 };

@@ -1,43 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import YouTube from "react-youtube";
+// icons
 import { BsYoutube, BsSpotify } from "react-icons/bs";
+// ---- react slick
 import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Why_choose_us_card = dynamic(() => import("../components/why_choose_us_card"));
+const Why_choose_us_card_Component = dynamic(() => import("../components/why_choose_us_card"));
+import serviceCard from "../models/serviceCard";
+// data
 import { service_data } from "../data";
-import serviceCard  from "../models/serviceCard";
+// lazy load
+import useInView from "react-cool-inview";
+import Radio_Card from "../components/radio_card";
+import Blog_container from "../components/blog_container";
 
 export default function Home() {
-	// const [player, setPlayer] = useState();
-	// const [id, setId] = useState("3AUY6xLFgkg");
-	// const opts = {
-	// 	height: '390',
-	// 	width: '100%',
-	// 	playerVars: {
-	// 		// autoplay: 1,
-	// 	},
-	// }
-	// const onReady = (event) => {
-	// 	setPlayer(event.target);
-	// };
-
-	// const onPlayVideo = () => {
-	// 	setId("3AUY6xLFgkg");
-	// 	player.playVideo();
-	// };
-
-	// const onPauseVideo = () => {
-	// 	player.pauseVideo();
-	// };
-
-	// const onEndVideo = () => {
-	// 	setId(null);
-	// };
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -87,7 +67,7 @@ export default function Home() {
 				},
 			},
 			{
-				breakpoint:500,
+				breakpoint: 500,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
@@ -96,7 +76,32 @@ export default function Home() {
 			},
 		],
 	};
-
+	const settings3 = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		autoplay: true,
+		speed: 2000,
+		autoplaySpeed: 13000,
+		// cssEase: "linear",
+		responsive: [
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 2,
+				},
+			},
+		],
+	};
+	// lazy load
+	const { observe, inView } = useInView({
+		onEnter: ({ unobserve }) => unobserve(),
+	});
+	
 	return (
 		<div className="text-color3">
 			<Head>
@@ -142,7 +147,7 @@ export default function Home() {
 					</div>
 				</div>
 				{/* why choose us */}
-				<div className="pt-28 pb-24 relative px-5 ">
+				<div className="pt-28 pb-24 relative px-5" ref={observe}>
 					{/* middle */}
 					<div className="bg-color4 absolute fy sm:items-center sm:flex-row  pl-8 xl:pl-12 py-1 sm:py-4    w-[95%] xl:w-[70%]  left-[50%] -translate-x-[50%]  h-52  -top-[100px] rounded-3xl">
 						<h1 className="w-full sm:w-[33%] text-xl xl:text-4xl text-primary font-semibold capitalize">
@@ -192,34 +197,36 @@ export default function Home() {
 							uncommonly own.
 						</p>
 					</div>
-					{/* card */}
-					<div className="w-[90vw] lg:w-[90%] xl:w-[80vw] mx-auto mt-16 h-full py-5 overflow-hidden px-7">
-						<Slider {...settings2}>
-							{service_data.map(
-								({ image, title, description }) => {
-									const card = new serviceCard(
-										title,
-										image,
-										description
-									);
-									return (
-										<Why_choose_us_card
-											key={card.image}
-											title={card.title}
-											image={card.image}
-											description={card.description}
-										/>
-									);
-								}
-							)}
-						</Slider>
+					{/* Why_choose_us_card_Component */}
+					<div className="w-[95vw] lg:w-[90%] xl:w-[80vw] mx-auto mt-16 h-full py-5 overflow-hidden px-7">
+						{inView && (
+							<Slider {...settings2}>
+								{service_data.map(
+									({ image, title, description }) => {
+										const card = new serviceCard(
+											title,
+											image,
+											description
+										);
+										return (
+											<Why_choose_us_card_Component
+												key={card.image}
+												title={card.title}
+												image={card.image}
+												description={card.description}
+											/>
+										);
+									}
+								)}
+							</Slider>
+						)}
 					</div>
 				</div>
 				{/* white section 1 */}
 				<div className="bg-white pb-96">
 					{/* radio series*/}
-					<div className="pt-14">
-						<h1 className="text-primary text-2xl sm:text-3xl   font-semibold text-center">
+					<div className="pt-20">
+						<h1 className="text-primary text-2xl sm:text-3xl   font-bold text-center">
 							Our Radio Series
 						</h1>
 						<p className="w-[87%] sm:w-[70%] lg:w-[40%] text-xs  text-center mx-auto sm:text-sm font-semibold  pt-3  text-slate-500">
@@ -228,11 +235,17 @@ export default function Home() {
 							uncommonly own.
 						</p>
 						{/* cards */}
-						<div>{}</div>
+						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
+							<Slider {...settings3}>
+								<Radio_Card id="W4ZECbd06MY" />
+								<Radio_Card id="TZ0vh0VefLM" />
+								<Radio_Card id="8FyNu15A7Gc" />
+							</Slider>
+						</div>
 					</div>
 					{/*Blog*/}
-					<div className="pt-14">
-						<h1 className="text-primary text-2xl sm:text-3xl   font-semibold text-center uppercase">
+					<div className="pt-14 mt-10">
+						<h1 className="text-primary text-2xl sm:text-3xl   font-bold text-center uppercase">
 							Our LATEST BLOG
 						</h1>
 						<p className="w-[87%] sm:w-[70%] lg:w-[40%] text-xs  text-center mx-auto sm:text-sm font-semibold  pt-3  text-slate-500">
@@ -240,7 +253,8 @@ export default function Home() {
 							discovery remainder. Way sentiments two indulgence
 							uncommonly own.
 						</p>
-						{/* card */}s<div>{}</div>
+						{/* Blog */}
+						<Blog_container/>
 					</div>
 				</div>
 			</main>
@@ -248,10 +262,3 @@ export default function Home() {
 	);
 }
 
-
-// <YouTube videoId={id} opts={opts} onReady={onReady} />
-// 				<div className="space-x-4">
-// 					<button onClick={onPlayVideo}>play</button>
-// 					<button onClick={onPauseVideo}>pause</button>
-// 					<button onClick={onEndVideo} >close</button>
-// 				</div>

@@ -1,26 +1,23 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
-const Service_Card = dynamic(() => import("../components/service_card"), {
-	// loading: () => (
-	// 	<p className="">loading.......</p>
-	// ),
+
+const Service_Card_Component = dynamic(() => import("../components/service_card"), {
+	loading: () => <p className="">loading.......</p>
 });
-const Contact_Us = dynamic(() => import("../components/contact_us"), {
-	// loading: () => (
-	// 	<p className="">loading.......</p>
-	// ),
+const Contact_Us_Component = dynamic(() => import("../components/contact_us"), {
+	loading: () => <p className="">loading.......</p>
 });
 import serviceCard from "../models/serviceCard";
 import { service_data, about_us } from "../data";
-
 import useInView from "react-cool-inview";
 
 const About = () => {
+	
 	const { paragraph1, paragraph2, paragraph3 } = about_us;
-
 	const { observe, inView } = useInView({
 		onEnter: ({  unobserve }) => unobserve()
 	});
+
 	return (
 		<div className="gap-y-20 fy mt-10 font-lato">
 			{/* landing section*/}
@@ -110,7 +107,7 @@ const About = () => {
 								description
 							);
 							return (
-								<Service_Card
+								<Service_Card_Component
 									key={card.image}
 									title={card.title}
 									image={card.image}
@@ -122,7 +119,7 @@ const About = () => {
 				)}
 			</div>
 			{/* Contact us section*/}
-			<Contact_Us />
+			<Contact_Us_Component />
 		</div>
 	);
 };

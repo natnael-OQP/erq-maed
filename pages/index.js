@@ -223,7 +223,7 @@ export default function Home() {
 					</div>
 				</div>
 				{/* white section 1 */}
-				<div className="bg-white pb-96">
+				<div className="bg-white pb-10">
 					{/* radio series*/}
 					<div className="pt-20">
 						<h1 className="text-primary text-2xl sm:text-3xl   font-bold text-center">
@@ -237,14 +237,14 @@ export default function Home() {
 						{/* cards */}
 						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
 							<Slider {...settings3}>
-								<Radio_Card id="W4ZECbd06MY" />
-								<Radio_Card id="TZ0vh0VefLM" />
-								<Radio_Card id="8FyNu15A7Gc" />
+								<Radio_Card key="W4ZECbd06MY" id="W4ZECbd06MY" />
+								<Radio_Card key="TZ0vh0VefLM" id="TZ0vh0VefLM" />
+								<Radio_Card key="8FyNu15A7Gc" id="8FyNu15A7Gc" />
 							</Slider>
 						</div>
 					</div>
 					{/*Blog*/}
-					<div className="pt-14 mt-10">
+					<div className="pt-16 mt-10">
 						<h1 className="text-primary text-2xl sm:text-3xl   font-bold text-center uppercase">
 							Our LATEST BLOG
 						</h1>

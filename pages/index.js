@@ -8,7 +8,9 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Why_choose_us_card_Component = dynamic(() => import("../components/why_choose_us_card"));
+const Why_choose_us_card_Component = dynamic(() =>
+	import("../components/why_choose_us_card")
+);
 import serviceCard from "../models/serviceCard";
 // data
 import { service_data } from "../data";
@@ -17,7 +19,7 @@ import useInView from "react-cool-inview";
 import Radio_Card from "../components/radio_card";
 import Blog_container from "../components/blog_container";
 
-export default function Home() {
+export default function Home({ radioCard }) {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -101,7 +103,7 @@ export default function Home() {
 	const { observe, inView } = useInView({
 		onEnter: ({ unobserve }) => unobserve(),
 	});
-	
+
 	return (
 		<div className="text-color3">
 			<Head>
@@ -237,9 +239,18 @@ export default function Home() {
 						{/* cards */}
 						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
 							<Slider {...settings3}>
-								<Radio_Card key="W4ZECbd06MY" id="W4ZECbd06MY" />
-								<Radio_Card key="TZ0vh0VefLM" id="TZ0vh0VefLM" />
-								<Radio_Card key="8FyNu15A7Gc" id="8FyNu15A7Gc" />
+								{radioCard.map(
+									({ id, session, episode, name, title }) => (
+										<Radio_Card
+											key={id}
+											id={id}
+											name={name}
+											title={title}
+											session={session}
+											episode={episode}
+										/>
+									)
+								)}
 							</Slider>
 						</div>
 					</div>
@@ -254,7 +265,7 @@ export default function Home() {
 							uncommonly own.
 						</p>
 						{/* Blog */}
-						<Blog_container/>
+						<Blog_container />
 					</div>
 				</div>
 			</main>
@@ -262,3 +273,14 @@ export default function Home() {
 	);
 }
 
+export async function getStaticProps(context) {
+	const data = await fetch("http://localhost:3000/api/radio").then(
+		(response) => response.json()
+	);
+	return {
+		props: {
+			radioCard: data,
+		},
+		revalidate: 10, // In seconds
+	};
+}

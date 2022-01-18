@@ -8,7 +8,7 @@ const Blog_container = () => {
                 <Blog/>
                 <Blog/>
             </div>
-			<p className="text-center cursor-pointer text-secondary font-semibold transition duration-200  hover:scale-105 active:scale-95 hover:text-color4">View More</p>
+			<p className="text-center cursor-pointer text-secondary font-semibold transition duration-200  hover:scale-105 active:scale-95 hover:text-color4 pt-5">View More</p>
 		</div>
 	);
 }

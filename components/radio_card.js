@@ -1,16 +1,16 @@
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 
-const Radio_Card = (props) => {
+const Radio_Card = ({id,title}) => {
 	return (
 		<div className="h-[250px] mx-auto min-w-[250px] md:h-[250px] cursor-pointer my-6  items-center px-1 py-3 sm:px-6 sm:py-3 relative">
 			<div className="w-full h-full  relative flex-grow my-3 bg-primary  overflow-hidden rounded-lg sm:rounded-xl">
 				<Image
-					src={`https://img.youtube.com/vi/${props?.id}/0.jpg`}
+					src={`https://img.youtube.com/vi/${id}/0.jpg`}
 					layout="fill"
 					className="opacity-40 transition-all transform ease-in-out hover:opacity-100"
 					objectFit="cover"
-					alt={props.title}
+					alt={title}
 				/>
 			</div>
 			<button className="w-[70px] h-[70px] transition duration-300 transform ease-in-out active:scale-75 flex items-center justify-center  rounded-full bg-gray-50 absolute top-[93px] left-[38%] -translate-x-[-38%] ">
@@ -21,7 +21,7 @@ const Radio_Card = (props) => {
 					Lorem ipsum | <span className="text-xs">S-2,E-4 </span>
 				</h5>
 				<h3 className="text-[19px] pt-1 font-bold tracking-wide   text-black text-center  truncate">
-					{props.title}
+					{title}
 				</h3>
 			</p>
 		</div>

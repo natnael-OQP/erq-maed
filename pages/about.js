@@ -2,10 +2,10 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const Service_Card_Component = dynamic(() => import("../components/service_card"), {
-	loading: () => <p className="">loading.......</p>
+	// loading: () => <p className="">loading.......</p>
 });
 const Contact_Us_Component = dynamic(() => import("../components/contact_us"), {
-	loading: () => <p className="">loading.......</p>
+	// loading: () => <p className="">loading.......</p>
 });
 import serviceCard from "../models/serviceCard";
 import { service_data, about_us } from "../data";

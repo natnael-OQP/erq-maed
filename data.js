@@ -84,3 +84,9 @@ export const Radio = [
 		title: " she therefore  neglected met ",
 	},
 ];
+
+export const Blog = [
+	{
+
+	},
+]

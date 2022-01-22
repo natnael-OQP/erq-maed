@@ -18,6 +18,7 @@ import { service_data } from "../data";
 import useInView from "react-cool-inview";
 import Radio_Card from "../components/radio_card";
 import Blog_container from "../components/blog_container";
+import Video_player from "../components/video_player";
 
 export default function Home({ radioCard }) {
 	const settings = {
@@ -269,6 +270,7 @@ export default function Home({ radioCard }) {
 					</div>
 				</div>
 			</main>
+			<Video_player/>
 		</div>
 	);
 }

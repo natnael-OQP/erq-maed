@@ -13,14 +13,15 @@ const Why_choose_us_card_Component = dynamic(() =>
 );
 import serviceCard from "../models/serviceCard";
 // data
-import { service_data } from "../data";
+import { Radio, service_data } from "../data";
 // lazy load
 import useInView from "react-cool-inview";
 import Radio_Card from "../components/radio_card";
 import Blog_container from "../components/blog_container";
 import Video_player from "../components/video_player";
 
-export default function Home({ radioCard }) {
+export default function Home() {
+
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -240,7 +241,7 @@ export default function Home({ radioCard }) {
 						{/* cards */}
 						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
 							<Slider {...settings3}>
-								{radioCard.map(
+								{Radio.map(
 									({ id, session, episode, name, title }) => (
 										<Radio_Card
 											key={id}
@@ -270,19 +271,18 @@ export default function Home({ radioCard }) {
 					</div>
 				</div>
 			</main>
-			<Video_player/>
+			<Video_player />
 		</div>
 	);
 }
 
-export async function getStaticProps(context) {
-	const data = await fetch("http://localhost:3000/api/radio").then(
-		(response) => response.json()
-	);
-	return {
-		props: {
-			radioCard: data,
-		},
-		revalidate: 10, // In seconds
-	};
-}
+// export async function getStaticProps(context) {
+// 	const data = await fetch('/api/radio').then(
+// 		(response) => response.json()
+// 	);
+// 	return {
+// 		props: {
+// 			radioCard: data,
+// 		},
+// 	};
+// }

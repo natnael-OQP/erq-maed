@@ -7,7 +7,7 @@ const Blog_container = ({ radioCard }) => {
 	const [counter, setCounter] = useState(2);
 	// api
 	const { data, isLoading, isError } = Use_Fetch(
-		"http://localhost:3000/api/blog"
+		"/api/blog"
 	);
     if (isLoading) {
         return (
@@ -52,10 +52,4 @@ const Blog_container = ({ radioCard }) => {
 };
 
 export default Blog_container;
-// {isLoading && (
-// 	<>
-// 		<Spinner />
-// 		<Spinner />
-// 		<Spinner />
-// 	</>
-// )}
+

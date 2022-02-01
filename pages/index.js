@@ -133,7 +133,7 @@ export default function Home() {
 							repair to desire he esteem.Sister depend change off
 							piqued one. Contented continued any happiness
 						</p>
-						<div className="fx pt-4 md:pt-6 gap-x-2">
+						<div className=" fx sm:hidden  pt-4 md:pt-6 gap-x-2">
 							<button className="bg-color4 text-lato transition transform-gpu ease-in-out rounded-sm hover:scale-105 active:scale-95 font-sm font-light px-5 py-[3px] text-gray-100">
 								See more
 							</button>

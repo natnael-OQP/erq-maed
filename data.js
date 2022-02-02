@@ -758,7 +758,7 @@ export const Blog = [
 
 export const portfolioData = [
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},
@@ -768,7 +768,7 @@ export const portfolioData = [
 		title: " talking improve produce ",
 	},
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},
@@ -785,17 +785,17 @@ export const portfolioData = [
 		title: " talking improve produce ",
 	},
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},
@@ -815,7 +815,7 @@ export const portfolioData = [
 		title: " talking improve produce ",
 	},
 	{
-		category: "NGO",
+		category: "ngo",
 		image: "https://img.youtube.com/vi/g3Bt3cn6dxs/0.jpg",
 		title: " talking improve produce ",
 	},

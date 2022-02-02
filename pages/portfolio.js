@@ -1,14 +1,25 @@
 import Portfolio_card from "../components/portfolio_card";
 import { portfolioData } from "../data";
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 const Portfolio = () => {
+	const [all, setAll] = useState(true);
 	const [counter, setCounter] = useState(6);
+	const [filteredData, setFilteredData] = useState([]);
+
 	const ViewMore = () => {
-		setCounter(counter+3)
-	}
+		setCounter(counter + 3);
+	};
 	const ViewLess = () => {
 		setCounter(6);
-	}
+	};
+
+	let filterHandler = (str) => {
+		setAll(false);
+		var filtered = portfolioData;
+		var data = filtered.filter((item) => item.category == str);
+		setFilteredData(data);
+	};
+	// console.log(portfolioData);
 	return (
 		<main className="w-full flex flex-col select-none pb-80">
 			<h1 className="text-secondary text-2xl  md:text-3xl font-semibold text-center tracking-wide">
@@ -21,34 +32,57 @@ const Portfolio = () => {
 			{/* filter button */}
 
 			<div className="max-w-[850px] mx-auto text-gray-50 space-x-4 my-6">
-				<button className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out ">
+				<button
+					onClick={() => setAll(true)}
+					className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					All Work
 				</button>
-				<button className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out ">
+				<button
+					onClick={() => filterHandler("ngo")}
+					className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					Ngo
 				</button>
-				<button className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out ">
+				<button
+					onClick={() => filterHandler("health")}
+					className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					health
 				</button>
-				<button className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out ">
+				<button
+					onClick={() => filterHandler("social media")}
+					className="text-base font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					social media
 				</button>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2  max-w-[850px] mx-auto    relative overflow-x-hidden">
-				{
-					portfolioData.map((item, i) => {
-					if (i < counter) {
-						return (
-							<Portfolio_card
-								key={item.image + i}
-								image={item.image}
-								category={item.category}
-								title={item.title}
-							/>
-						);
-					}
-					})
-				}
+				{all
+					? portfolioData.map((item, i) => {
+							if (i < counter) {
+								return (
+									<Portfolio_card
+										key={item.image + i}
+										image={item.image}
+										category={item.category}
+										title={item.title}
+									/>
+								);
+							}
+					  })
+					: filteredData.map((item, i) => {
+							if (i < counter) {
+								return (
+									<Portfolio_card
+										key={item.image + i}
+										image={item.image}
+										category={item.category}
+										title={item.title}
+									/>
+								);
+							}
+					  })}
 			</div>
 			{counter >= portfolioData.length ? (
 				<button

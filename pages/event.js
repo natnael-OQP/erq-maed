@@ -2,6 +2,8 @@ import Image from "next/image";
 import Medium_event_card from "../components/medium_event_card";
 import Small_Event_Card from "../components/small_event_card";
 import Large_event_card from "../components/large_event_card";
+import Upcoming_event_popup from "../components/upcoming_event_popup";
+import { upcoming } from "../data";
 
 const Event = () => {
 	return (
@@ -15,9 +17,17 @@ const Event = () => {
 			</h1>
 			<div className=" max-w-[800px] mx-auto mt-10  flex flex-col space-y-3 md:py-4 ">
 				<div className="grid  gap-y-3 md:grid-cols-3 gap-x-4   max-w-[900px] mx-auto ">
-					<Small_Event_Card />
-					<Small_Event_Card />
-					<Small_Event_Card />
+					{upcoming.map((item) => (
+						<Small_Event_Card
+							key={item.image}
+							image={item.image}
+							name={item.name}
+							title={item.title}
+							description={item.description}
+							list={item.list}
+							author={item.author}
+						/>
+					))}
 				</div>
 				{/* section-2 */}
 				<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-3  max-w-[900px] h-full  md:h-[350px]   mx-auto relative overflow-hidden px-3 ">
@@ -30,6 +40,7 @@ const Event = () => {
 					<Medium_event_card />
 				</div>
 			</div>
+			<Upcoming_event_popup />
 		</main>
 	);
 };

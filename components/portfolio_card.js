@@ -1,8 +1,12 @@
 import Image from "next/image";
-
-const Portfolio_card = ({category,title,image}) => {
+import { useRouter } from "next/router";
+const Portfolio_card = ({ category, title, image }) => {
+	const route = useRouter();
 	return (
-		<div className="max-w-[205px] h-[100px] bg-gray-50 relative mx-auto mt-20  ">
+		<div
+			onClick={() => route.push(`/post/${category}`)}
+			className="max-w-[205px] h-[100px] bg-gray-50 relative mx-auto mt-20 cursor-pointer"
+		>
 			<div className="absolute -top-14 left-0  rounded-3xl w-[195px]  h-[130px]  overflow-hidden">
 				<div className="relative w-full h-full overflow-hidden bg-secondary ">
 					<Image

@@ -820,3 +820,44 @@ export const portfolioData = [
 		title: " talking improve produce ",
 	},
 ];
+export const upcoming = [
+	{
+		author: "nathan",
+		name: "Removed enjoyed",
+		title: "horrible morning assured",
+		description:
+			"Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured",
+		list: [
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+		],
+		image: "https://img.youtube.com/vi/mrBjjvGh44U/0.jpg",
+	},
+	{
+		author: "nathan",
+		name: "Removed enjoyed",
+		title: "horrible morning assured",
+		description:
+			"Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured",
+		list: [
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+		],
+		image: "https://img.youtube.com/vi/W4ZECbd06MY/0.jpg",
+	},
+	{
+		author: "nathan",
+		name: "Removed enjoyed",
+		title: "horrible morning assured",
+		description:
+			"Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured",
+		list: [
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+			"Lorem ipsum dolor sit.",
+		],
+		image: "https://img.youtube.com/vi/TZ0vh0VefLM/0.jpg",
+	},
+];

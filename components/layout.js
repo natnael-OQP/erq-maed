@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 const FootersComponent = dynamic(() => import("./footers"));
-import Navbar from "./nav_bar";
+import Navbar from "./navBar";
 import useInView from "react-cool-inview";
 const Layout = ({ children }) => {
 	// lazy load

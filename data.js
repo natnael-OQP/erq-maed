@@ -833,6 +833,7 @@ export const upcoming = [
 			"Lorem ipsum dolor sit.",
 		],
 		image: "https://img.youtube.com/vi/mrBjjvGh44U/0.jpg",
+		isRegister: true,
 	},
 	{
 		author: "nathan",

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Medium_event_card from "../components/medium_event_card";
-import Small_Event_Card from "../components/small_event_card";
-import Large_event_card from "../components/large_event_card";
-import Upcoming_event_popup from "../components/upcoming_event_popup";
+import Medium_event_card from "../components/mediumEventCard";
+import Small_Event_Card from "../components/smallEventCard";
+import Large_event_card from "../components/largeEventCard";
+import Upcoming_event_popup from "../components/upcomingEventPopup";
 import { upcoming } from "../data";
 
 const Event = () => {
@@ -22,6 +22,7 @@ const Event = () => {
 							key={item.image}
 							image={item.image}
 							name={item.name}
+							isRegister={item.isRegister}
 							title={item.title}
 							description={item.description}
 							list={item.list}

@@ -9,19 +9,18 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const Why_choose_us_card_Component = dynamic(() =>
-	import("../components/why_choose_us_card")
+	import("../components/whyChooseUsCard")
 );
 import serviceCard from "../models/serviceCard";
 // data
 import { Radio, service_data } from "../data";
 // lazy load
 import useInView from "react-cool-inview";
-import Radio_Card from "../components/radio_card";
-import Blog_container from "../components/blog_container";
-import Video_player from "../components/video_player";
+import Radio_Card from "../components/radioCard";
+import Blog_container from "../components/blogContainer";
+import Video_player from "../components/videoPlayer";
 
 export default function Home() {
-
 	const settings = {
 		dots: true,
 		infinite: true,

@@ -1,8 +1,10 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-const Service_Card_Component = dynamic(() => import("../components/service_card"),);
-const Contact_Us_Component = dynamic(() => import("../components/contact_us"));
+const Service_Card_Component = dynamic(() =>
+	import("../components/serviceCard")
+);
+const Contact_Us_Component = dynamic(() => import("../components/contactUs"));
 import serviceCard from "../models/serviceCard";
 import { service_data, about_us } from "../data";
 import useInView from "react-cool-inview";

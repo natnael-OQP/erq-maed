@@ -1,4 +1,4 @@
-import Portfolio_card from "../components/portfolio_card";
+import Portfolio_card from "../components/portfolioCard";
 import { portfolioData } from "../data";
 import { useState, useEffect } from "react";
 const Portfolio = () => {
@@ -32,19 +32,34 @@ const Portfolio = () => {
 			{/* filter button */}
 
 			<div className="max-w-[850px] mx-auto text-gray-50 space-x-2 md:space-x-4  my-6">
-				<button onClick={() => setAll(true)} className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out " >
+				<button
+					onClick={() => setAll(true)}
+					className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					All Work
 				</button>
-				<button onClick={() => filterHandler("radio program")} className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out " >
+				<button
+					onClick={() => filterHandler("radio program")}
+					className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					Radio Prog
 				</button>
-				<button onClick={() => filterHandler("ngo")} className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out " >
+				<button
+					onClick={() => filterHandler("ngo")}
+					className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					Ngo
 				</button>
-				<button onClick={() => filterHandler("health")} className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out " >
+				<button
+					onClick={() => filterHandler("health")}
+					className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					health
 				</button>
-				<button onClick={() => filterHandler("social media")} className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out " >
+				<button
+					onClick={() => filterHandler("social media")}
+					className="text-xs sm:text-sm md:text-base  font-semibold capitalize hover:text-secondary  transition-transform ease-in-out "
+				>
 					social media
 				</button>
 			</div>

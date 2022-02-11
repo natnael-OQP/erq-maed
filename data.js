@@ -1,3 +1,10 @@
+export const homepage = {
+	title: "Lorem ipsum",
+	description:
+		"Village did removed enjoyed explain nor ham saw calling talking. Securing as informed declared or margaret. Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured country believe. On even feet time have an no at. Relation so in confined smallest children unpacked delicate. Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem.Sister depend change off piqued one. Contented continued any happiness",
+	carouselTitle: "Lorem Ipsum Dolor Sit Amet Consect.",
+};
+
 export const about_us = {
 	paragraph1: `Oh to talking improve produce in limited offices fifteen
                 an. Wicket branch to answer do we. Place are decay men

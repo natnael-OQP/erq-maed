@@ -6,10 +6,10 @@ const Service_Card_Component = dynamic(() =>
 );
 const Contact_Us_Component = dynamic(() => import("../components/contactUs"));
 import serviceCard from "../models/serviceCard";
-import { service_data, about_us } from "../data";
 import useInView from "react-cool-inview";
+import axios from "axios";
 
-const About = () => {
+const About = ({ service_data, about_us }) => {
 	const { paragraph1, paragraph2, paragraph3 } = about_us;
 	const { observe, inView } = useInView({
 		onEnter: ({ unobserve }) => unobserve(),
@@ -120,5 +120,16 @@ const About = () => {
 		</div>
 	);
 };
+
+export async function getStaticProps(context) {
+	const { data: about_us } = await axios.get("/api/aboutus");
+	const { data: service_data } = await axios.get("/api/servicedata");
+	return {
+		props: {
+			about_us,
+			service_data,
+		},
+	};
+}
 
 export default About;

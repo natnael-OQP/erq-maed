@@ -1,7 +1,8 @@
 import Portfolio_card from "../components/portfolioCard";
-import { portfolioData } from "../data";
 import { useState, useEffect } from "react";
-const Portfolio = () => {
+import axios from "axios";
+
+const Portfolio = ({ portfolioData }) => {
 	const [all, setAll] = useState(true);
 	const [counter, setCounter] = useState(6);
 	const [filteredData, setFilteredData] = useState([]);
@@ -65,7 +66,7 @@ const Portfolio = () => {
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2  max-w-[850px] mx-auto    relative overflow-x-hidden">
 				{all
-					? portfolioData.map((item, i) => {
+					? portfolioData?.map((item, i) => {
 							if (i < counter) {
 								return (
 									<Portfolio_card
@@ -77,7 +78,7 @@ const Portfolio = () => {
 								);
 							}
 					  })
-					: filteredData.map((item, i) => {
+					: filteredData?.map((item, i) => {
 							if (i < counter) {
 								return (
 									<Portfolio_card
@@ -90,7 +91,7 @@ const Portfolio = () => {
 							}
 					  })}
 			</div>
-			{counter >= portfolioData.length ? (
+			{counter >= portfolioData?.length ? (
 				<button
 					onClick={ViewLess}
 					className="text-sm font-semibold text-white bg-secondary  py-2 rounded-lg shadow-sm duration-100 transition-transform ease-in-out  shadow-sky-700 hover:scale-105 active:scale-95 w-[105px] flex justify-center mx-auto mt-10"
@@ -108,5 +109,14 @@ const Portfolio = () => {
 		</main>
 	);
 };
+
+export async function getStaticProps(context) {
+	const { data: portfolioData } = await axios.get("/api/portfolio");
+	return {
+		props: {
+			portfolioData,
+		},
+	};
+}
 
 export default Portfolio;

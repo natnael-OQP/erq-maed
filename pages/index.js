@@ -12,15 +12,14 @@ const Why_choose_us_card_Component = dynamic(() =>
 	import("../components/whyChooseUsCard")
 );
 import serviceCard from "../models/serviceCard";
-// data
-import { Radio, service_data } from "../data";
 // lazy load
 import useInView from "react-cool-inview";
 import Radio_Card from "../components/radioCard";
 import Blog_container from "../components/blogContainer";
 import Video_player from "../components/videoPlayer";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ homepage, Radio, service_data }) {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -117,20 +116,10 @@ export default function Home() {
 				<div className="px-3 md:px-10 lg:px-20 h-[550px]  xl:h-[74vh] bg-[#10121F]">
 					<div className="pt-16 sm:pt-[13%] md:pt-[15%] lg:pt-[10%] px-3 ">
 						<h1 className="text-4xl md:text-6xl text-white font-bold text-left">
-							Lorem ipsum
+							{homepage.title}
 						</h1>
 						<p className="text-color3 font-lato text-sm pt-5 md:pt-10 md:w-[70%] lg:w-[50%]">
-							Village did removed enjoyed explain nor ham saw
-							calling talking. Securing as informed declared or
-							margaret. Joy horrible moreover man feelings own
-							shy. Request norland neither mistake for yet.
-							Between the for morning assured country believe. On
-							even feet time have an no at. Relation so in
-							confined smallest children unpacked delicate. Why
-							sir end believe uncivil respect. Always get adieus
-							nature day course for common. My little garret
-							repair to desire he esteem.Sister depend change off
-							piqued one. Contented continued any happiness
+							{homepage.description}
 						</p>
 						<div className=" fx sm:hidden  pt-4 md:pt-6 gap-x-2">
 							<button className="bg-color4 text-lato transition transform-gpu ease-in-out rounded-sm hover:scale-105 active:scale-95 font-sm font-light px-5 py-[3px] text-gray-100">
@@ -154,38 +143,27 @@ export default function Home() {
 					{/* middle */}
 					<div className="bg-color4 absolute fy sm:items-center sm:flex-row  pl-8 xl:pl-12 py-1 sm:py-4    w-[95%] xl:w-[70%]  left-[50%] -translate-x-[50%]  h-52  -top-[100px] rounded-3xl">
 						<h1 className="w-full sm:w-[33%] text-xl xl:text-4xl text-primary font-semibold capitalize">
-							Lorem ipsum dolor sit amet consect.
+							{homepage.carouselTitle}
 						</h1>
 						{/* slide */}
 						<div className=" w-[90%] h-full py-5 overflow-hidden px-7">
 							<Slider {...settings}>
-								<div className="smallCardContainer ">
-									<div className="smallCard">1</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">2</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">3</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">4</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">5</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">6</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">7</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">8</div>
-								</div>
-								<div className="smallCardContainer">
-									<div className="smallCard">9</div>
-								</div>
+								{Array(5).fill(
+									<div className="smallCardContainer group">
+										<div className="smallCard  ">
+											<Image
+												className=""
+												layout="fill"
+												objectFit="cover"
+												src="https://img.youtube.com/vi/mrBjjvGh44U/0.jpg"
+												alt="card"
+											/>
+											<p className="bg-secondary bg-opacity-60 text-white  text-xs font-lato font-bold absolute top-0 left-0 h-full w-full hidden items-center group-hover:justify-center group-hover:text-center group-hover:z-50 group-hover:flex pb-3 px-3">
+												Image title lorem, ipsum dolor.
+											</p>
+										</div>
+									</div>
+								)}
 							</Slider>
 						</div>
 					</div>
@@ -275,13 +253,15 @@ export default function Home() {
 	);
 }
 
-// export async function getStaticProps(context) {
-// 	const data = await fetch('/api/radio').then(
-// 		(response) => response.json()
-// 	);
-// 	return {
-// 		props: {
-// 			radioCard: data,
-// 		},
-// 	};
-// }
+export async function getStaticProps(context) {
+	const { data: homepage } = await axios.get("/api/homepage");
+	const { data: Radio } = await axios.get("/api/radio");
+	const { data: service_data } = await axios.get("/api/servicedata");
+	return {
+		props: {
+			homepage,
+			Radio,
+			service_data,
+		},
+	};
+}

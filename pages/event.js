@@ -3,9 +3,9 @@ import Medium_event_card from "../components/mediumEventCard";
 import Small_Event_Card from "../components/smallEventCard";
 import Large_event_card from "../components/largeEventCard";
 import Upcoming_event_popup from "../components/upcomingEventPopup";
-import { upcoming } from "../data";
+import axios from "axios";
 
-const Event = () => {
+const Event = ({ upcoming }) => {
 	return (
 		<main className="w-full flex flex-col select-none pb-16">
 			<h1 className="text-secondary text-2xl  md:text-3xl font-semibold text-center tracking-wide">
@@ -45,5 +45,14 @@ const Event = () => {
 		</main>
 	);
 };
+
+export async function getStaticProps(context) {
+	const { data: upcoming } = await axios.get("/api/upcoming");
+	return {
+		props: {
+			upcoming,
+		},
+	};
+}
 
 export default Event;

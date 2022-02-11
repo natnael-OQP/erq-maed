@@ -110,7 +110,7 @@ const Portfolio = ({ portfolioData }) => {
 	);
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const { data: portfolioData } = await axios.get("/api/portfolio");
 	return {
 		props: {

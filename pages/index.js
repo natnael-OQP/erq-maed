@@ -19,7 +19,7 @@ import Blog_container from "../components/blogContainer";
 import Video_player from "../components/videoPlayer";
 import axios from "axios";
 
-export default function Home({ homepage, Radio, service_data }) {
+function Home({ homepage, Radio, service_data }) {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -116,10 +116,10 @@ export default function Home({ homepage, Radio, service_data }) {
 				<div className="px-3 md:px-10 lg:px-20 h-[550px]  xl:h-[74vh] bg-[#10121F]">
 					<div className="pt-16 sm:pt-[13%] md:pt-[15%] lg:pt-[10%] px-3 ">
 						<h1 className="text-4xl md:text-6xl text-white font-bold text-left">
-							{homepage.title}
+							{homepage?.title}
 						</h1>
 						<p className="text-color3 font-lato text-sm pt-5 md:pt-10 md:w-[70%] lg:w-[50%]">
-							{homepage.description}
+							{homepage?.description}
 						</p>
 						<div className=" fx sm:hidden  pt-4 md:pt-6 gap-x-2">
 							<button className="bg-color4 text-lato transition transform-gpu ease-in-out rounded-sm hover:scale-105 active:scale-95 font-sm font-light px-5 py-[3px] text-gray-100">
@@ -143,7 +143,7 @@ export default function Home({ homepage, Radio, service_data }) {
 					{/* middle */}
 					<div className="bg-color4 absolute fy sm:items-center sm:flex-row  pl-8 xl:pl-12 py-1 sm:py-4    w-[95%] xl:w-[70%]  left-[50%] -translate-x-[50%]  h-52  -top-[100px] rounded-3xl">
 						<h1 className="w-full sm:w-[33%] text-xl xl:text-4xl text-primary font-semibold capitalize">
-							{homepage.carouselTitle}
+							{homepage?.carouselTitle}
 						</h1>
 						{/* slide */}
 						<div className=" w-[90%] h-full py-5 overflow-hidden px-7">
@@ -182,7 +182,7 @@ export default function Home({ homepage, Radio, service_data }) {
 					<div className="w-[95vw] lg:w-[90%] xl:w-[80vw] mx-auto mt-16 h-full py-5 overflow-hidden px-7">
 						{inView && (
 							<Slider {...settings2}>
-								{service_data.map(
+								{service_data?.map(
 									({ image, title, description }) => {
 										const card = new serviceCard(
 											title,
@@ -218,7 +218,7 @@ export default function Home({ homepage, Radio, service_data }) {
 						{/* cards */}
 						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
 							<Slider {...settings3}>
-								{Radio.map(
+								{Radio?.map(
 									({ id, session, episode, name, title }) => (
 										<Radio_Card
 											key={id}
@@ -253,7 +253,7 @@ export default function Home({ homepage, Radio, service_data }) {
 	);
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const { data: homepage } = await axios.get("/api/homepage");
 	const { data: Radio } = await axios.get("/api/radio");
 	const { data: service_data } = await axios.get("/api/servicedata");
@@ -265,3 +265,4 @@ export async function getStaticProps(context) {
 		},
 	};
 }
+export default Home;

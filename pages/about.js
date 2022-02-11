@@ -121,7 +121,7 @@ const About = ({ service_data, about_us }) => {
 	);
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const { data: about_us } = await axios.get("/api/aboutus");
 	const { data: service_data } = await axios.get("/api/servicedata");
 	return {

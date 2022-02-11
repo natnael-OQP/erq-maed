@@ -46,7 +46,7 @@ const Event = ({ upcoming }) => {
 	);
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const { data: upcoming } = await axios.get("/api/upcoming");
 	return {
 		props: {

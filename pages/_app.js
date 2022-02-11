@@ -4,7 +4,7 @@ import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://erqmaed.vercel.app/";
+axios.defaults.baseURL = "https://eqr-maed-api.vercel.app";
 
 function MyApp({ Component, pageProps }) {
 	const progress = new ProgressBar({

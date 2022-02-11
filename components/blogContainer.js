@@ -6,7 +6,9 @@ import Spinner from "./spinner";
 const Blog_container = ({ radioCard }) => {
 	const [counter, setCounter] = useState(2);
 	// api
-	const { data, isLoading, isError } = Use_Fetch("/api/blog");
+	const { data, isLoading, isError } = Use_Fetch(
+		"https://eqr-maed-api.vercel.app/api/blog"
+	);
 	if (isLoading) {
 		return (
 			<div className="w-[90vw] lg:w-[90%]  xl:w-[65%] mx-auto  h-full py-7  overflow-x-hidden fy">

@@ -1,7 +1,10 @@
-import Layout from '../components/layout'
-import '../styles/globals.css'
+import Layout from "../components/layout";
+import "../styles/globals.css";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000";
 
 function MyApp({ Component, pageProps }) {
 	const progress = new ProgressBar({
@@ -11,14 +14,14 @@ function MyApp({ Component, pageProps }) {
 		delay: 80,
 	});
 	// route Change Start
-	Router.events.on("routeChangeStart",()=> progress.start());
+	Router.events.on("routeChangeStart", () => progress.start());
 	// route Change end
-	Router.events.on("routeChangeComplete",()=> progress.finish())
+	Router.events.on("routeChangeComplete", () => progress.finish());
 	return (
 		<Layout>
 			<Component {...pageProps} />
 		</Layout>
 	);
-};
+}
 
-export default MyApp
+export default MyApp;

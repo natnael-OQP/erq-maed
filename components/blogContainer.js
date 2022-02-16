@@ -3,13 +3,10 @@ import { Use_Fetch } from "../lib/fetcher";
 import Blog from "./blog";
 import Spinner from "./spinner";
 
-const Blog_container = ({ radioCard }) => {
+const Blog_container = ({ data }) => {
 	const [counter, setCounter] = useState(2);
 	// api
-	const { data, isLoading, isError } = Use_Fetch(
-		"https://eqr-maed-api.vercel.app/api/blog"
-	);
-	if (isLoading) {
+	if (!data) {
 		return (
 			<div className="w-[90vw] lg:w-[90%]  xl:w-[65%] mx-auto  h-full py-7  overflow-x-hidden fy">
 				<div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">

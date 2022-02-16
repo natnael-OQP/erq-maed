@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BiCommentDetail } from "react-icons/bi";
 import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
 
-const Blog = ({ id,  title, author, date, body  }) => {
+const Blog = ({ id,  title, author, date, body }) => {
 	const truncate = (str) => {
 		const myTruncatedString = str.substring(0, 115);
 		return myTruncatedString + " .....";

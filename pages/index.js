@@ -19,7 +19,7 @@ import Blog_container from "../components/blogContainer";
 import Video_player from "../components/videoPlayer";
 import axios from "axios";
 
-function Home({ homepage, Radio, service_data }) {
+function Home({ homepage, Radio, service_data, blog }) {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -183,7 +183,7 @@ function Home({ homepage, Radio, service_data }) {
 						{inView && (
 							<Slider {...settings2}>
 								{service_data?.map(
-									({ image, title, description }) => {
+									({ image, title, description }, i) => {
 										const card = new serviceCard(
 											title,
 											image,
@@ -191,7 +191,7 @@ function Home({ homepage, Radio, service_data }) {
 										);
 										return (
 											<Why_choose_us_card_Component
-												key={card.image}
+												key={card.image + i}
 												title={card.title}
 												image={card.image}
 												description={card.description}
@@ -219,9 +219,12 @@ function Home({ homepage, Radio, service_data }) {
 						<div className="w-[90vw] lg:w-[90%] xl:w-[70vw] mx-auto  h-full py-7  overflow-x-hidden  ">
 							<Slider {...settings3}>
 								{Radio?.map(
-									({ id, session, episode, name, title }) => (
+									(
+										{ id, session, episode, name, title },
+										i
+									) => (
 										<Radio_Card
-											key={id}
+											key={id + i}
 											id={id}
 											name={name}
 											title={title}
@@ -244,7 +247,7 @@ function Home({ homepage, Radio, service_data }) {
 							uncommonly own.
 						</p>
 						{/* Blog */}
-						<Blog_container />
+						<Blog_container data={blog} />
 					</div>
 				</div>
 			</main>
@@ -257,11 +260,13 @@ export async function getStaticProps() {
 	const { data: homepage } = await axios.get("/api/homepage");
 	const { data: Radio } = await axios.get("/api/radio");
 	const { data: service_data } = await axios.get("/api/servicedata");
+	const { data: blog } = await axios.get("/api/blog");
 	return {
 		props: {
 			homepage,
 			Radio,
 			service_data,
+			blog,
 		},
 	};
 }

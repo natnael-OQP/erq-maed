@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import HeroSection from "../components/admin/heroSection";
 import WhyChooseUsSection from "../components/admin/whyChooseUsSection";
 import AboutUsBrandInfo from "../components/admin/aboutUsBrandInfo";
+import Blog from "../components/admin/bloge";
+import Event from "../components/admin/Event";
 
 const Admin = () => {
 	return (
@@ -39,6 +41,10 @@ const Admin = () => {
 					<WhyChooseUsSection />
 					{/* About Us - Brand Information */}
 					<AboutUsBrandInfo />
+					{/* Blog */}
+					<Blog />
+					{/* Event */}
+					<Event />
 				</div>
 			</div>
 		</div>
@@ -46,4 +52,3 @@ const Admin = () => {
 };
 
 export default Admin;
-// <main className="bg-gray-100 text-gray-900 tracking-wider leading-normal">

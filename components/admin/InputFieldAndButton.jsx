@@ -1,5 +1,3 @@
-import React from "react";
-
 const InputFieldAndButton = ({ labelName,to,inputId,inputType, buttonText,}) => {
 	return (
 		<div className="flex  justify-between ">

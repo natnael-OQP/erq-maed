@@ -1,5 +1,3 @@
-import React from "react";
-
 const Textarea = ({ textareaId }) => {
 	return (
 		<div className="w-[500px] flex flex-col space-y-8">

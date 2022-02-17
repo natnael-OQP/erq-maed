@@ -1,7 +1,5 @@
 import Input from "./Input";
-import InputFieldAndButton from "./InputFieldAndButton";
 import Label from "./Label";
-import Textarea from "./Textarea";
 
 const Event = () => {
 	return (

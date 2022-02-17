@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Head from "next/head";
 import HeroSection from "../components/admin/heroSection";
 import WhyChooseUsSection from "../components/admin/whyChooseUsSection";
